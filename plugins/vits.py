@@ -42,7 +42,7 @@ async def vits_to(session: CommandSession):
             target_qq = int(target_qq_str)
         except:
             target_qq = -1
-    target_text = (await session.aget(prompt="模型加载完成啦！输入你想读出的文本吧！输入\"!退出\"退出语音合成。")).strip()
+    target_text = (await session.aget(prompt="模型加载完成啦！输入你想读出的文本吧！输入\"!退出\"退出语音合成。")).strip().replace("！","!")
     while target_text != "!退出" and target_text.lower() != "!exit":
         voice_url = await get_voice_url(model_standard_name,target_text)
         await nonebot.get_bot().send_private_msg(message=f"[CQ:record,file={voice_url}]",user_id=target_qq)
