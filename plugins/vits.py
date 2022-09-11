@@ -1,6 +1,3 @@
-from ast import Await
-from random import seed
-from urllib import request
 from nonebot import on_command, CommandSession
 from urllib.parse import quote
 import nonebot
